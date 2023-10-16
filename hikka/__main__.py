@@ -46,7 +46,7 @@ else:
         try:
             import telethon
 
-            if tuple(map(int, telethon.__version__.split("."))) < (1, 24, 14):
+            if tuple(map(int, telethon.__version__.split("."))) < (1, 24, 12):
                 raise ImportError
         except ImportError:
             print("🔄 Installing Hikka-TL...")
@@ -71,7 +71,7 @@ else:
         try:
             import pyrogram
 
-            if tuple(map(int, pyrogram.__version__.split("."))) < (2, 0, 66):
+            if tuple(map(int, pyrogram.__version__.split("."))) < (2, 0, 61):
                 raise ImportError
         except ImportError:
             print("🔄 Installing Hikka-Pyro...")
