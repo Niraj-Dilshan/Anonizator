@@ -25,8 +25,8 @@ class ModsMod(loader.Module):
     strings = {
         "name": "Mods",
         "amount": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢ Ⲙⲟύ ⲅⲟⲥⲡⲟⲇυⲏ #<code>{user.first_name}</code>, ⲏⲁ ⲃⲁⲱⲉⲙ ⲥⳡёⲧⲩ <b>{}</b> ⲙσⲇⲩⲗεύ",
-        "partial_load": "load",
-            "\n<b>Wait Please, Anonizator Loading...</b>",
+        "partial_load": "<b>load</b>\n"
+            "<b>Wait Please, Anonizator Loading...</b>",
             " Anonizator Loading...</b>"
         ),
         "module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢",
@@ -63,6 +63,4 @@ class ModsMod(loader.Module):
              await self.client.send_file(message.peer_id, random.choice(media_files), caption=result)
              await message.delete()
              
-        await utils.answer(message, result, self.strings("loading"))
-
-        await utils.answer(message, result)
+        await utils.answer(message, result, self.strings("loading")
