@@ -25,8 +25,8 @@ class ModsMod(loader.Module):
             "\n<b>Wait please,"
             " Anonizator is loading...</b>"
         ),
-        "module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢\n",
-        "core_module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢\n"
+        "module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢",
+        "core_module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢"
     }
 
     strings_ru = {
@@ -35,9 +35,9 @@ class ModsMod(loader.Module):
             "\n<b>Wait Please,"
             " Anonizator is loading...</b>"
         ),
-        "cmd": "<i><b><code></code></i></b>\n",
-        "module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢\n",
-        "core_module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢\n"
+        "cmd": "<i></i>\n",
+        "module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢",
+        "core_module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢"
     }
     
     @loader.command(
