@@ -3,17 +3,13 @@
 # 🌐 https://www.gnu.org/licenses/agpl-3.0.html
 #
 # ---------------------------------------------------------------------------------
-#     ▀▄   ▄▀   🎈 Module for Anonizator User Bot (based on Hikka 1.6.0)
-#    ▄█▀███▀█▄  🔒 The MIT License (MIT)
-#   █▀███████▀█ ⚠️ Owner @doxny and @Anonizator
-#   █ █▀▀▀▀▀█ █
-#      ▀▀ ▀▀
+# 👾 Module for Adaptator User Bot (based on Hikka 6.0.0)⚠️ Owner @kaio1777 and @yuki_marry
 # ---------------------------------------------------------------------------------
 # meta developer: @doxny
 
 from .. import loader, utils
 import logging
-
+import random
 
 logger = logging.getLogger(__name__)
 
@@ -24,19 +20,29 @@ class ModsMod(loader.Module):
 
     strings = {
         "name": "Mods",
-        "amount": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢ Ⲙⲟύ ⲅⲟⲥⲡⲟⲇυⲏ #<code>{user.first_name}</code>, ⲏⲁ ⲃⲁⲱⲉⲙ ⲥⳡёⲧⲩ <b>{}</b> ⲙσⲇⲩⲗεύ",
-        "partial_load": "<b>load</b>\n"
-            "<b>Wait Please, Anonizator Loading...</b>",
-            " Anonizator Loading...</b>"
+        "amount": "  〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢ Ⲙⲟύ ⲅⲟⲥⲡⲟⲇυⲏ #{user_ent.first_name}, ⲏⲁ ⲃⲁⲱⲉⲙ ⲥⳡёⲧⲩ <b>{}</b> ⲙσⲇⲩⲗεύ\n",
+        "partial_load": (
+            "\n<b>Wait please,"
+            " Anonizator is loading...</b>"
         ),
         "module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢",
         "core_module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢"
     }
-    
+
+    strings_ru = {
+        "amount": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢ Ⲙⲟύ ⲅⲟⲥⲡⲟⲇυⲏ #{user_ent.first_name}, ⲏⲁ ⲃⲁⲱⲉⲙ ⲥⳡёⲧⲩ <b>{}</b> ⲙσⲇⲩⲗεύ",
+        "partial_load": (
+            "\n<b>Wait Please,"
+            " Anonizator is loading...</b>"
+        ),
+        "cmd": "<i><b><code></code></i></b>\n",
+        "module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢",
+        "core_module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢"
+    }
     
     @loader.command(
-        ru_doc="Показать все установленные модули",
-    )
+        ru_doc="Показать все установленные модули"
+        )
     async def modscmd(self, message):
         """- List of all of the modules currently installed"""
 
@@ -48,11 +54,7 @@ class ModsMod(loader.Module):
                 name = mod.strings["name"]
             except KeyError:
                 name = mod.__clas__.__name__
-            emoji = (
-                self.strings("core_module")
-                if mod.__origin__.startswith("<core")
-                else self.strings("module")
-            )
+            emoji = self.strings("core_module") if mod.__origin__.startswith("<core") else self.strings("module")
             result += f"\n {emoji} <code>{name}</code>"
 
         result += "" if self.lookup("Loader").fully_loaded else f"\n\n{self.strings('partial_load')}"
@@ -63,4 +65,4 @@ class ModsMod(loader.Module):
              await self.client.send_file(message.peer_id, random.choice(media_files), caption=result)
              await message.delete()
              
-        await utils.answer(message, result, self.strings("loading")
+        await utils.answer(message, result, self.strings("loading"))
