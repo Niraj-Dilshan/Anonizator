@@ -20,7 +20,7 @@ class ModsMod(loader.Module):
 
     strings = {
         "name": "Mods",
-        "amount": "  〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢ Ⲙⲟύ ⲅⲟⲥⲡⲟⲇυⲏ #{first_name}, ⲏⲁ ⲃⲁⲱⲉⲙ ⲥⳡёⲧⲩ <b>{}</b> ⲙσⲇⲩⲗεύ\n",
+        "amount": "  〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢ ⲏⲁ ⲃⲁⲱⲉⲙ ⲥⳡёⲧⲩ <b>{}</b> ⲙσⲇⲩⲗεύ\n",
         "partial_load": (
             "\n<b>Wait please,"
             " Anonizator is loading...</b>"
@@ -30,7 +30,7 @@ class ModsMod(loader.Module):
     }
 
     strings_ru = {
-        "amount": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢ Ⲙⲟύ ⲅⲟⲥⲡⲟⲇυⲏ #{first_name}, ⲏⲁ ⲃⲁⲱⲉⲙ ⲥⳡёⲧⲩ <b>{}</b> ⲙσⲇⲩⲗεύ\n",
+        "amount": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢ ⲏⲁ ⲃⲁⲱⲉⲙ ⲥⳡёⲧⲩ <b>{}</b> ⲙσⲇⲩⲗεύ\n",
         "partial_load": (
             "\n<b>Wait Please,"
             " Anonizator is loading...</b>"
