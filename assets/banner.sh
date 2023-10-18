@@ -1,3 +1,18 @@
+class Colorate:
+    @staticmethod
+    def Horizontal(colors, text):
+        length = len(colors)
+        result = ""
+        for i, char in enumerate(text):
+            result += f"{colors[i % length]}{char}"
+        return result
+
+class Center:
+    @staticmethod
+    def XCenter(text):
+        x = int((os.get_terminal_size().columns - len(text)) / 2)
+        return f"\033[{x}C{text}"
+        
 print_center(){
     local x
     local y
@@ -7,7 +22,7 @@ print_center(){
     echo -ne "\033[${y};${x}f$*"
 }
 
-print(Colorate.Horizontal(COLOR_CODE["RED_TO_WHITE"], Center.XCenter(banner)))
+print(Colorate.Horizontal("RED_TO_WHITE"), Center.XCenter(banner)))
 
 COLOR_CODE = {
     "RESET": "\033[0m",  
