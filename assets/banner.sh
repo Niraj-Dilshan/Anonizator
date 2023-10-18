@@ -1,3 +1,4 @@
+print_center(){
 COLOR_CODE = {
     "RESET": "\033[0m",  
     "UNDERLINE": "\033[04m", 
@@ -10,13 +11,7 @@ COLOR_CODE = {
     "URL_L": "\033[36m",       
     "LI_G": "\033[92m",      
     "F_CL": "\033[0m",
-    "DARK": "\033[90m",     
-}
-
-print(Colorate.Horizontal(Colors.red_to_white,Center.XCenter(banner)))
-select = input(f'{COLOR_CODE["RED"]}[+]{COLOR_CODE["BOLD"]} Выбрать >{COLOR_CODE["RED"]} ')
-
-print_center(){
+    "DARK": "\033[90m",}
     local x
     local y
     text="$*"
