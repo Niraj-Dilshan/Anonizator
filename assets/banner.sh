@@ -56,5 +56,5 @@ print_center "
                                                                                                                           
                                                              
                                                          
-${COLOR_CODE["PINK"]}Anonizator started successfully!${COLOR_CODE["RESET"]}
-${COLOR_CODE["YELLOW"]}Web url: http://localhost:1242${COLOR_CODE["RESET"]}
+Anonizator started successfully!
+Web url: http://localhost:1242
