@@ -12,6 +12,10 @@ COLOR_CODE = {
     "F_CL": "\033[0m",
     "DARK": "\033[90m",     
 }
+
+print(Colorate.Horizontal(Colors.red_to_white,Center.XCenter(banner)))
+select = input(f'{COLOR_CODE["RED"]}[+]{COLOR_CODE["BOLD"]} Выбрать >{COLOR_CODE["RED"]} ')
+
 print_center(){
     local x
     local y
