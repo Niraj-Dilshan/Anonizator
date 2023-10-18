@@ -5,9 +5,6 @@ print_center(){
     x=$(( ($(tput cols) - ${#text}) / 2))
     echo -ne "\E[6n";read -sdR y; y=$(echo -ne "${y#*[}" | cut -d';' -f1)
     echo -ne "\033[${y};${x}f$*"
-    x = (int(os.popen('tput cols', 'r').read()) - len(text)) // 2
-    y = int(os.popen('tput lines', 'r').read())
-    print(f"\033[{y};{x}f{text}")
 }
 
 print(Colorate.Horizontal("RED_TO_WHITE"), Center.XCenter(banner)))
