@@ -7,18 +7,33 @@ print_center(){
     echo -ne "\033[${y};${x}f$*"
 }
 
-echo -ne "\\033[2J\033[3;1f"
+print(Colorate.Horizontal(COLOR_CODE["PINK"], Center.XCenter(banner)))
+
+COLOR_CODE = {
+    "RESET": "\033[0m",  
+    "UNDERLINE": "\033[04m", 
+    "GREEN": "\033[32m",     
+    "YELLOW": "\033[93m",    
+    "RED": "\033[31m",       
+    "CYAN": "\033[36m",     
+    "BOLD": "\033[01m",        
+    "PINK": "\033[95m",
+    "URL_L": "\033[36m",       
+    "LI_G": "\033[92m",      
+    "F_CL": "\033[0m",
+    "DARK": "\033[90m",
+}
+
 print_center "
-     \033[95m __      _____  ___      ______    _____  ___    __   ________        __  ___________  ______     _______033[0m   
-     \033[95m/""\    (\"   \|"  \    /    " \  (\"   \|"  \  |" \ ("      "\      /""\("     _   ")/    " \   /"      \033[0m  
-    \033[95m/    \   |.\\   \    |  // ____  \ |.\\   \    | ||  | \___/   :)    /    \)__/  \\__/// ____  \ |:        |033[0m 
-   \033[95m/' /\  \  |: \.   \\  | /  /    ) :)|: \.   \\  | |:  |   /  ___/    /' /\  \  \\_ /  /  /    ) :)|_____/   )033[0m 
-  \033[95m//  __'  \ |.  \    \. |(: (____/ // |.  \    \. | |.  |  //  \__    //  __'  \ |.  | (: (____/ //  //      /033[0m  
- \033[95m/   /  \\  \|    \    \ | \        /  |    \    \ | /\  |\(:   / "\  /   /  \\  \\:  |  \        /  |:  __   \033[0m  
-\033[95m(___/    \___)\___|\____\)  \"_____/    \___|\____\)(__\_|_)\_______)(___/    \___)\__|   \"_____/   |__|  \___)033[0m 
+     ${COLOR_CODE["PINK"]}       _  _      __    _  _       __          ___  __     ___${COLOR_CODE["RESET"]}   
+     ${COLOR_CODE["PINK"]}/""\    (\"   \|"  \    /    " \  (\"   \|"  \  |" \ ("      "\      /""\\${COLOR_CODE["RESET"]}  
+    ${COLOR_CODE["PINK"]}/    \   |.\\   \    |  // __  \ |.\\   \    | ||  | \_/   :)    /    \)/  \\\\/ ____  \ |:        |${COLOR_CODE["RESET"]}
+   ${COLOR_CODE["PINK"]}/' /\  \  |: \.   \\  | /  /    ) :)|: \.   \\  | |:  |   /  _/    /' /\  \  \\_ /  /  /    ) :)|___/   )${COLOR_CODE["RESET"]}
+  ${COLOR_CODE["PINK"]}//  '  \ |.  \    \. |(: (/ // |.  \    \. | |.  |  //  \    //  '  \ |.  | (: (__/ //  //      /${COLOR_CODE["RESET"]}
+ ${COLOR_CODE["PINK"]}/   /  \\  \|    \    \ | \        /  |    \    \ | /\  |\(:   / "\  /   /  \\  \\:  |  \        /  |:  __   ${COLOR_CODE["RESET"]}
+${COLOR_CODE["PINK"]}(_/    \_)\_|\\)  \"_/    \_|\__\)(\_|_)\_)(_/    \_)\|   \"_/   ||  \_)${COLOR_CODE["RESET"]}
                                                                                                                           
                                                              
                                                          
-\033[95mAnonizator started successfully!\033[0m
-\033[95mWeb url: http://localhost:1242\033[0m
-"
+${COLOR_CODE["PINK"]}Anonizator started successfully!${COLOR_CODE["RESET"]}
+${COLOR_CODE["PINK"]}Web url: http://localhost:1242${COLOR_CODE["RESET"]}
