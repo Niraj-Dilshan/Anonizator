@@ -7,8 +7,6 @@ print_center(){
     echo -ne "\033[${y};${x}f$*"
 }
 
-print(Colorate.Horizontal("RED_TO_WHITE"), Center.XCenter(banner)))
-
 COLOR_CODE = {
     "RESET": "\033[0m",  
     "UNDERLINE": "\033[04m", 
