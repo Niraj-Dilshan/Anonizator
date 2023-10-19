@@ -58,25 +58,6 @@ from .dispatcher import CommandDispatcher
 from .tl_cache import CustomTelegramClient
 from .translations import Translator
 from .version import netver, __version__
-from banner import banner
-from pystyle import *
-
-COLOR_CODE = {
-    "RESET": "\033[0m",  
-    "UNDERLINE": "\033[04m", 
-    "GREEN": "\033[32m",     
-    "YELLOW": "\033[93m",    
-    "RED": "\033[31m",       
-    "CYAN": "\033[36m",     
-    "BOLD": "\033[01m",        
-    "PINK": "\033[95m",
-    "URL_L": "\033[36m",       
-    "LI_G": "\033[92m",      
-    "F_CL": "\033[0m",
-    "DARK": "\033[90m",     
-}
-
-print(Colorate.Horizontal(Colors.red_to_white,Center.XCenter(banner)))
 
 try:
     from .web import core
