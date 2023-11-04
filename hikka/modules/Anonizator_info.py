@@ -134,7 +134,7 @@ class AnonizatorInfoMod(loader.Module):
             ),
             loader.ConfigValue(
                 "banner_url",
-                "https://github.com/s1zexxx/Anonizator/raw/stable/assets/Anonizator_info.mp4",
+                "https://github.com/s1zexxx/Anonizator/raw/stable/assets/anonizator_info.mp4",
                 lambda: self.strings("_cfg_banner"),
                 validator=loader.validators.Link(),
             ),
@@ -142,8 +142,8 @@ class AnonizatorInfoMod(loader.Module):
 
     async def client_ready(self):
         self._me = await self._client.get_me()
-        if self.config["banner_url"] == "https://github.com/s1zexxx/Anonizator/raw/stable/assets/Anonizator_info.mp4":
-            self.config["banner_url"] = "https://github.com/s1zexxx/Anonizator/raw/stable/assets/Anonizator_info.mp4"
+        if self.config["banner_url"] == "https://github.com/s1zexxx/Anonizator/raw/stable/assets/anonizator_info.mp4":
+            self.config["banner_url"] = "https://github.com/s1zexxx/Anonizator/raw/stable/assets/anonizator_info.mp4"
 
     def _render_info(self, inline: bool) -> str:
         me = '<b><a href="tg://user?id={}">{}</a></b>'.format(
