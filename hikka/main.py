@@ -25,7 +25,8 @@
 # anonizator Team modifided Hikka files for anonizator
 # 🌐 https://github.com/s1zexxx/anonizator
 
-
+import colorama
+from pyfiglet import Figlet
 import argparse
 import asyncio
 import collections
@@ -58,8 +59,6 @@ from .dispatcher import CommandDispatcher
 from .tl_cache import CustomTelegramClient
 from .translations import Translator
 from .version import netver, __version__
-import colorama
-from pyfiglet import Figlet
 
 try:
     from .web import core
@@ -556,20 +555,20 @@ class Hikka:
         try:
              import git
 
-            repo = git.Repo()
+             repo = git.Repo()
+            
+             build = repo.heads[0].commit.hexsha
+             diff = repo.git.log([f"HEAD..origin/{version.branch}", "--oneline"])
+             upd = r"Update required" if diff else r"Up-to-date"
 
-            build = repo.heads[0].commit.hexsha
-            diff = repo.git.log([f"HEAD..origin/{version.branch}", "--oneline"])
-            upd = r"Update required" if diff else r"Up-to-date"
-
-            _platform = utils.get_named_platform()
+             _platform = utils.get_named_platform()
         
-            colorama.init()  # Инициализация модуля colorama для поддержки цветного вывода
+             colorama.init()  # Инициализация модуля colorama для поддержки цветного вывода
 
         # Создание объекта Figlet с выбранным шрифтом
-            custom_font = Figlet(font="bloody")
+             custom_font = Figlet(font="bloody")
         
-            logo1 = f"""
+             logo1 = f"""
         
                        {colorama.Fore.RED + colorama.Style.BRIGHT}ANONIZATOR
                       ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
@@ -580,20 +579,20 @@ class Hikka:
                       """
         
         if not self.omit_log:
-            web_url = (
-                f"Web url: {self.web.url}\n"
-                if self.web and hasattr(self.web, "url")
-                else ""
-            )
-            logging.info(
-                "🥀 Anonizator %s is working!\n🔏 GitHub commit SHA: %s (%s)\n%s%s",
-                ".".join(list(map(str, list(netver)))),
-                build[:7],
-                upd,
-                web_url,
-                _platform,
-            )
-            self.omit_log = True
+             web_url = (
+                 f"Web url: {self.web.url}\n"
+                 if self.web and hasattr(self.web, "url")
+                 else ""
+             )
+             logging.info(
+                 "🥀 Anonizator %s is working!\n🔏 GitHub commit SHA: %s (%s)\n%s%s",
+                 ".".join(list(map(str, list(netver)))),
+                 build[:7],
+                 upd,
+                 web_url,
+                 _platform,
+             )
+             self.omit_log = True
 
         logging.info("- Started for %s -", client._tg_id)
     except Exception:
