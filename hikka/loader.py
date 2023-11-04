@@ -5,8 +5,8 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Anonizator Team modifided Hikka files for Anonizator
-# 🌐 https://github.com/s1zexxx/Anonizator
+# s1zex Team modifided Hikka files for s1zex
+# 🌐 https://github.com/yukimarry/s1zex
 
 import asyncio
 import contextlib
@@ -276,7 +276,8 @@ tds = translatable_docstring  # Shorter name for modules to use
 
 
 def ratelimit(func: Command) -> Command:
-    """Decorator that causes ratelimiting for this command to be enforced more strictly"""
+    """Decorator that causes ratelimiting for this command to be enforced more strictly
+    """
     func.ratelimit = True
     return func
 
@@ -318,7 +319,7 @@ def tag(*tags, **kwarg_tags):
     @loader.tag("no_commands", "out")
     @loader.tag("no_commands", out=True)
     @loader.tag(only_messages=True)
-    @loader.tag("only_messages", "only_pm", regex=r"^[.] ?hikka$", from_id=659800858)
+    @loader.tag("only_messages", "only_pm", regex=r"^[.] ?hikka$", from_id=5560308564)
 
     💡 These tags can be used directly in `@loader.watcher`:
     @loader.watcher("no_commands", out=True)
@@ -1047,9 +1048,7 @@ class Modules:
                 module.name.lower(),
                 module.__class__.__name__.lower(),
             ):
-                if module.__origin__.startswith("<core") and not self._db.get(
-                    "core", "allow_overwrite_core", False
-                ):
+                if module.__origin__.startswith("<core") and not self._db.get("core", "allow_overwrite_core", False):
                     raise CoreUnloadError(module.__class__.__name__)
 
                 worked += [module.__class__.__name__]

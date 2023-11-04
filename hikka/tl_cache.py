@@ -3,8 +3,8 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Anonizator Team modifided Hikka files for Anonizator
-# 🌐 https://github.com/s1zexxx/Anonizator
+# s1zex Team modifided Hikka files for s1zex
+# 🌐 https://github.com/yukimarry/s1zex
 
 import copy
 import inspect
@@ -479,7 +479,7 @@ class CustomTelegramClient(TelegramClient):
         # ⚠️⚠️  WARNING!  ⚠️⚠️
         # If you are a module developer, and you'll try to bypass this protection to
         # force user join your channel, you will be added to SCAM modules
-        # list and you will be banned from Hikka and Anonizator federation.
+        # list and you will be banned from Hikka and anonizator federation.
         # Let USER decide, which channel he will follow. Do not be so petty
         # I hope, you understood me.
         # Thank you

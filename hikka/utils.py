@@ -21,8 +21,8 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Anonizator Team modifided Hikka files for Anonizator
-# 🌐 https://github.com/s1zexxx/Anonizator
+# s1zex Team modifided Hikka files for s1zex
+# 🌐 https://github.com/yukimarry/s1zex
 
 import platform
 import asyncio
@@ -443,7 +443,7 @@ async def answer(
 ) -> typing.Union[InlineCall, InlineMessage, Message]:
     """
     Use this to give the response to a command
-    :param message: Message to answer to. Can be a tl message or Anonizator inline object
+    :param message: Message to answer to. Can be a tl message orAnonizator inline object
     :param response: Response to send
     :param reply_markup: Reply markup to send. If specified, inline form will be used
     :return: Message or inline object
@@ -719,7 +719,7 @@ async def invite_inline_bot(
                 channel=peer,
                 user_id=client.loader.inline.bot_username,
                 admin_rights=ChatAdminRights(ban_users=True),
-                rank="Anonizator",
+                rank="anonizator",
             )
         )
 
@@ -730,11 +730,7 @@ async def convert_folders(client):
     folders = await client(GetDialogFiltersRequest())
 
     try:
-        folder = next(
-            folder
-            for folder in folders
-            if hasattr(folder, "title") and folder.title == "hikka"
-        )
+        folder = next(folder for folder in folders if hasattr(folder, "title") and folder.title == "hikka")
     except Exception:
         folder = None
 
@@ -784,18 +780,19 @@ async def asset_channel(
     ):
         return client._channels_cache[title]["peer"], False
 
-    # legacy anonizator / hikka chats conversion to anonizator
+    # legacyAnonizator / hikka chats conversion toAnonizator
     if title.startswith("hikka-"):
         title = title.replace("hikka-", "anonizator-")
 
     async for d in client.iter_dialogs():
-        if (d.title == title) or (
-            (d.title.replace("hikka-", "anonizator-") == title)
-            if d.title.startswith("hikka-")
-            else False
-        ):
+        if (d.title == title) or ((d.title.replace("hikka-", "anonizator-") == title) if d.title.startswith("hikka-") else False):
             if d.title.startswith("hikka-"):
-                await client(EditTitleRequest(d.title, title))
+                await client(
+                    EditTitleRequest(
+                        d.title,
+                        title
+                    )
+                )
 
             client._channels_cache[title] = {"peer": d.entity, "exp": int(time.time())}
             if invite_bot:
@@ -852,11 +849,7 @@ async def asset_channel(
         folders = await client(GetDialogFiltersRequest())
 
         try:
-            folder = next(
-                folder
-                for folder in folders
-                if hasattr(folder, "title") and folder.title == "anonizator"
-            )
+            folder = next(folder for folder in folders if hasattr(folder, "title") and folder.title == "anonizator")
         except Exception:
             folder = None
 
@@ -958,7 +951,7 @@ def get_named_platform() -> str:
         from platform import uname
 
         if "microsoft-standard" in uname().release:
-            return "🍁 Windows WSL"
+            return "🍁 WSL"
     except Exception:
         pass
 
@@ -971,19 +964,23 @@ def get_named_platform() -> str:
     if "RAILWAY" in os.environ:
         return "🚂 Railway"
 
+    if "com.termux" in os.environ.get("PREFIX", ""):
+        return "🕶 Termux"
+
     if "CODESPACES" in os.environ:
         return "🐈‍⬛ Codespaces"
 
     if "LUMIHOST" in os.environ:
         return "😎 LumiHost"
+    
+    if "PYTHONDONTWRITEBYTECODE" in os.environ:
+        return "🧩 Back4App"
 
     if "DOCKER" in os.environ:
-        return "🐳 Docker"
+        return "🐳 Docker"     
 
-    if "SEGFAULT" in os.environ:
-        return "⚙️ Segfault"
-    
     return f"👾 {platform.system()}"
+    
 
 
 def get_platform_emoji(client: typing.Optional[CustomTelegramClient] = None) -> str:
@@ -995,7 +992,9 @@ def get_platform_emoji(client: typing.Optional[CustomTelegramClient] = None) -> 
         will be broken.
     :return: Emoji entity in string
     """
-    BASE = ("<emoji document_id=5224301818313450421>🎈</emoji> <b>Anonizator</b>",)
+    BASE = (
+        "<emoji document_id=5281005969420066218>🥀</emoji> <b>anonizator</b>",
+    )
 
     if client and (
         client.loader.db.get("hikka.translations", "lang", False) or ""
@@ -1043,64 +1042,10 @@ def ascii_face() -> str:
     return escape_html(
         random.choice(
             [
-                "ヽ(๑◠ܫ◠๑)ﾉ",
-                "(◕ᴥ◕ʋ)",
-                "ᕙ(`▽´)ᕗ",
-                "(✿◠‿◠)",
-                "(▰˘◡˘▰)",
-                "(˵ ͡° ͜ʖ ͡°˵)",
-                "ʕっ•ᴥ•ʔっ",
-                "( ͡° ᴥ ͡°)",
-                "(๑•́ ヮ •̀๑)",
-                "٩(^‿^)۶",
-                "(っˆڡˆς)",
-                "ψ(｀∇´)ψ",
-                "⊙ω⊙",
-                "٩(^ᴗ^)۶",
-                "(´・ω・)っ由",
-                "( ͡~ ͜ʖ ͡°)",
-                "✧♡(◕‿◕✿)",
-                "โ๏௰๏ใ ื",
-                "∩｡• ᵕ •｡∩ ♡",
-                "(♡´౪`♡)",
-                "(◍＞◡＜◍)⋈。✧♡",
-                "╰(✿´⌣`✿)╯♡",
-                "ʕ•ᴥ•ʔ",
-                "ᶘ ◕ᴥ◕ᶅ",
-                "▼・ᴥ・▼",
-                "ฅ^•ﻌ•^ฅ",
-                "(΄◞ิ౪◟ิ‵)",
-                "٩(^ᴗ^)۶",
-                "ᕴｰᴥｰᕵ",
-                "ʕ￫ᴥ￩ʔ",
-                "ʕᵕᴥᵕʔ",
-                "ʕᵒᴥᵒʔ",
-                "ᵔᴥᵔ",
-                "(✿╹◡╹)",
-                "(๑￫ܫ￩)",
-                "ʕ·ᴥ·　ʔ",
-                "(ﾉ≧ڡ≦)",
-                "(≖ᴗ≖✿)",
-                "（〜^∇^ )〜",
-                "( ﾉ･ｪ･ )ﾉ",
-                "~( ˘▾˘~)",
-                "(〜^∇^)〜",
-                "ヽ(^ᴗ^ヽ)",
-                "(´･ω･`)",
-                "₍ᐢ•ﻌ•ᐢ₎*･ﾟ｡",
-                "(。・・)_且",
-                "(=｀ω´=)",
-                "(*•‿•*)",
-                "(*ﾟ∀ﾟ*)",
-                "(☉⋆‿⋆☉)",
-                "ɷ◡ɷ",
-                "ʘ‿ʘ",
-                "(。-ω-)ﾉ",
-                "( ･ω･)ﾉ",
-                "(=ﾟωﾟ)ﾉ",
-                "(・ε・`*) …",
-                "ʕっ•ᴥ•ʔっ",
-                "(*˘︶˘*)",
+                "by s1zex",
+                "by heart",
+                "by inversiya",
+                "updated byAnonizator",
             ]
         )
     )
@@ -1301,7 +1246,7 @@ def check_url(url: str) -> bool:
 
 def get_git_hash() -> typing.Union[str, bool]:
     """
-    Get current Anonizator git hash
+    Get currentAnonizator git hash
     :return: Git commit hash
     """
     try:
@@ -1312,12 +1257,14 @@ def get_git_hash() -> typing.Union[str, bool]:
 
 def get_commit_url() -> str:
     """
-    Get current Anonizator git commit url
+    Get currentAnonizator git commit url
     :return: Git commit url
     """
     try:
         hash_ = get_git_hash()
-        return f'<a href="https://github.com/s1zexxx/Anonizator/commit/{hash_}">#{hash_[:7]}</a>'
+        return (
+            f'<a href="https://github.com/s1zexxx/Anonizator/commit/{hash_}">#{hash_[:7]}</a>'
+        )
     except Exception:
         return "Unknown"
 

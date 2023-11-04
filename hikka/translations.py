@@ -3,8 +3,8 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Anonizator Team modifided Hikka files for Anonizator
-# 🌐 https://github.com/s1zexxx/Anonizator
+# s1zex Team modifided Hikka files for s1zex
+# 🌐 https://github.com/yukimarry/s1zex
 
 import json
 import logging

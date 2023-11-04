@@ -3,8 +3,8 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Anonizator Team modifided Hikka files for Anonizator
-# 🌐 https://github.com/s1zexxx/Anonizator
+# anonizator Team modifided Hikka files for anonizator
+# 🌐 https://github.com/s1zexxx/anonizator
 
 import asyncio
 import atexit
@@ -40,8 +40,8 @@ def restart():
     if "HIKKA_DO_NOT_RESTART" in os.environ:
         print(
             "Got in a loop, exiting\nYou probably need to manually remove existing"
-            " packages and then restart Anonizator. Run `pip uninstall -y telethon"
-            " telethon-mod hikka-tl pyrogram hikka-pyro`, then restart Anonizator."
+            " packages and then restart anonizator. Run `pip uninstall -y telethon"
+            " telethon-mod hikka-tl pyrogram hikka-pyro`, then restart anonizator."
         )
         sys.exit(0)
 

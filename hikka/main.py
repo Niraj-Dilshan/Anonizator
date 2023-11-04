@@ -22,8 +22,8 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Anonizator Team modifided Hikka files for Anonizator
-# 🌐 https://github.com/s1zexxx/Anonizator
+# anonizator Team modifided Hikka files for anonizator
+# 🌐 https://github.com/s1zexxx/anonizator
 
 
 import argparse
@@ -58,6 +58,8 @@ from .dispatcher import CommandDispatcher
 from .tl_cache import CustomTelegramClient
 from .translations import Translator
 from .version import netver, __version__
+import colorama
+from pyfiglet import Figlet
 
 try:
     from .web import core
@@ -453,7 +455,7 @@ class Hikka:
                     connection=self.conn,
                     proxy=self.proxy,
                     connection_retries=None,
-                    device_model=(f"Anonizator UB"),
+                    device_model=(f"Anonizator"),
                     app_version=(f"Anonizator v{netver[0]}.{netver[1]}.{netver[2]}"),
                 )
 
@@ -501,7 +503,7 @@ class Hikka:
                     phone=raise_auth if self.web else lambda: input("Номер телефона: ")
                 )
 
-                client.phone = "protected by toxic"
+                client.phone = "protected by s1zex"
 
                 self.clients += [client]
             except sqlite3.OperationalError:
@@ -552,7 +554,7 @@ class Hikka:
     async def _badge(self, client: CustomTelegramClient):
         """Call the badge in shell"""
         try:
-            import git
+             import git
 
             repo = git.Repo()
 
@@ -561,40 +563,41 @@ class Hikka:
             upd = r"Update required" if diff else r"Up-to-date"
 
             _platform = utils.get_named_platform()
-            
-            logo1 = f"""
-            
-    ___                      _             __                
-   /   |  ____  ____  ____  (_)___  ____ _/ /_____  _____    
-  / /| | / __ \/ __ \/ __ \/ /_  / / __ `/ __/ __ \/ ___/    
- / ___ |/ / / / /_/ / / / / / / /_/ /_/ / /_/ /_/ / /        
-/_/  |_/_/ /_/\____/_/ /_/_/ /___/\__,_/\__/\____/_/         
-                                                             
-       🧿 Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
-       🧿 {upd}
-       🧿 Platform: {_platform}
-                     """
-                         
-            if not self.omit_log:
-                print(logo1)
-                web_url = (
-                    f"Web url: {self.web.url}\n"
-                    if self.web and hasattr(self.web, "url")
-                    else ""
-                )
-                logging.info(
-                    "🎈 Anonizator %s is working!\n🔏 GitHub commit SHA: %s (%s)\n%s%s",
-                    ".".join(list(map(str, list(netver)))),
-                    build[:7],
-                    upd,
-                    web_url,
-                    _platform,
-                )
-                self.omit_log = True
+        
+            colorama.init()  # Инициализация модуля colorama для поддержки цветного вывода
 
-            logging.info("- Started for %s -", client._tg_id)
-        except Exception:
-            logging.exception("Badge error")
+        # Создание объекта Figlet с выбранным шрифтом
+            custom_font = Figlet(font="bloody")
+        
+            logo1 = f"""
+        
+                       {colorama.Fore.RED + colorama.Style.BRIGHT}ANONIZATOR
+                      ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
+                      ♦ {upd}
+                      ♦ Platform: {_platform}
+                      {colorama.Style.RESET_ALL}
+                      print(custom_font.renderText(logo1))
+                      """
+        
+        if not self.omit_log:
+            web_url = (
+                f"Web url: {self.web.url}\n"
+                if self.web and hasattr(self.web, "url")
+                else ""
+            )
+            logging.info(
+                "🥀 Anonizator %s is working!\n🔏 GitHub commit SHA: %s (%s)\n%s%s",
+                ".".join(list(map(str, list(netver)))),
+                build[:7],
+                upd,
+                web_url,
+                _platform,
+            )
+            self.omit_log = True
+
+        logging.info("- Started for %s -", client._tg_id)
+    except Exception:
+        logging.exception("Badge error")
 
     async def _add_dispatcher(
         self,
@@ -673,19 +676,14 @@ class Hikka:
     def main(self):
         """Main entrypoint"""
         self._init_web()
-        
-        if os.name == "termux" in os.uname().release.lower():
-            print("Platform unsupported: Termux")
-            return
-        
         save_config_key("port", self.arguments.port)
         self._get_token()
 
         if (
-            not self.clients
-            and not self.sessions
-            or not self._init_clients()
-        ) and not self._initial_setup():
+            not self.clients  # Search for already inited clients
+            and not self.sessions  # Search for already added sessions
+            or not self._init_clients()  # Attempt to read sessions from env
+        ) and not self._initial_setup():  # Otherwise attempt to run setup
             return
 
         self.loop.set_exception_handler(

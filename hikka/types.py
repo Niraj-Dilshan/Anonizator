@@ -3,8 +3,8 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Anonizator Team modifided Hikka files for Anonizator
-# 🌐 https://github.com/s1zexxx/Anonizator
+# s1zex Team modifided Hikka files for s1zex
+# 🌐 https://github.com/yukimarry/s1zex
 
 
 import ast
@@ -93,7 +93,8 @@ class Module:
         """Called after client is ready (after config_loaded)"""
 
     def internal_init(self):
-        """Called after the class is initialized in order to pass the client and db. Do not call it yourself"""
+        """Called after the class is initialized in order to pass the client and db. Do not call it yourself
+        """
         self.db = self.allmodules.db
         self._db = self.allmodules.db
         self.client = self.allmodules.client
@@ -473,7 +474,7 @@ class Module:
             if version.__version__ < ver:
                 _raise(
                     RuntimeError(
-                        f"Library requires Anonizator version {'{}.{}.{}'.format(*ver)}+"
+                        f"Library requires anonizator version {'{}.{}.{}'.format(*ver)}+"
                     )
                 )
 
@@ -833,7 +834,7 @@ class ModuleConfig(dict):
         if callable(ret):
             try:
                 # Compatibility tweak
-                # does nothing in Anonizator
+                # does nothing in anonizator
                 ret = ret(message)
             except Exception:
                 ret = ret()

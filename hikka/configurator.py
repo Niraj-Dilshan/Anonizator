@@ -19,8 +19,8 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Anonizator Team modifided Hikka files for Anonizator
-# 🌐 https://github.com/s1zexxx/Anonizator
+# Netfoll Team modifided Hikka files for Netfoll
+# 🌐 https://github.com/MXRRI/Netfoll
 
 import locale
 import os
@@ -31,6 +31,7 @@ import typing
 from dialog import Dialog, ExecutableNotFound
 
 from . import utils
+
 
 def _safe_input(*args, **kwargs):
     try:
@@ -88,12 +89,14 @@ def api_config(data_root: str):
 
 
 
-    ___                      _             __                
-   /   |  ____  ____  ____  (_)___  ____ _/ /_____  _____    
-  / /| | / __ \/ __ \/ __ \/ /_  / / __ `/ __/ __ \/ ___/    
- / ___ |/ / / / /_/ / / / / / / /_/ /_/ / /_/ /_/ / /        
-/_/  |_/_/ /_/\____/_/ /_/_/ /___/\__,_/\__/\____/_/         
-                                                             
+ 
+
+     _    _   _  ___  _   _ ___ _____   _  _____ ___  ____  
+    / \  | \ | |/ _ \| \ | |_ _|__  /  / \|_   _/ _ \|  _ \ 
+   / _ \ |  \| | | | |  \| || |  / /  / _ \ | || | | | |_) |
+  / ___ \| |\  | |_| | |\  || | / /_ / ___ \| || |_| |  _ < 
+ /_/   \_\_| \_|\___/|_| \_|___/____/_/   \_\_| \___/|_| \_\
+                                                            
 
 Пожалуйста, введите API HASH
 Для отмены, нажмите Ctrl + Z
