@@ -25,8 +25,6 @@
 # anonizator Team modifided Hikka files for anonizator
 # 🌐 https://github.com/s1zexxx/anonizator
 
-import colorama
-from pyfiglet import Figlet
 import argparse
 import asyncio
 import collections
@@ -560,22 +558,14 @@ class Hikka:
             build = repo.heads[0].commit.hexsha
             diff = repo.git.log([f"HEAD..origin/{version.branch}", "--oneline"])
             upd = r"Update required" if diff else r"Up-to-date"
-
-            _platform = utils.get_named_platform()
-        
-            colorama.init()  # Инициализация модуля colorama для поддержки цветного вывода
-
-        # Создание объекта Figlet с выбранным шрифтом
-            custom_font = Figlet(font="bloody")
         
             logo1 = f"""
-        
-                      {colorama.Fore.RED + colorama.Style.BRIGHT}anonizator test
+
+                     ANONIZATOR UPDATE
+       
                      ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
                      ♦ {upd}
                      ♦ Platform: {_platform}
-                      {colorama.Style.RESET_ALL} 
-                      print(custom_font.renderText(logo1))
                       """
         
             if not self.omit_log:
