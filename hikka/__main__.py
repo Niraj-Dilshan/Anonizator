@@ -5,8 +5,8 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# anonizator Team modifided Hikka files for anonizator
-# 🌐 https://github.com/s1zexxx/anonizator
+# Anonizator Team modifided Hikka files for Anonizator
+# 🌐 https://github.com/s1zexxx/Anonizator
 
 import getpass
 import os
@@ -21,7 +21,7 @@ if (
     and all(trigger not in os.environ for trigger in {"DOCKER", "GOORM"})
 ):
     print("🚫" * 15)
-    print("You attempted to run anonizator on behalf of root user")
+    print("You attempted to run Anonizator on behalf of root user")
     print("Please, create a new user and restart script")
     print("If this action was intentional, pass --root argument instead")
     print("🚫" * 15)
@@ -46,7 +46,7 @@ else:
         try:
             import telethon
 
-            if tuple(map(int, telethon.__version__.split("."))) < (1, 24, 0):
+            if tuple(map(int, telethon.__version__.split("."))) < (1, 24, 12):
                 raise ImportError
         except ImportError:
             print("🔄 Installing Hikka-TL...")

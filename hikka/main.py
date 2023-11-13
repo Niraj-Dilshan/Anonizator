@@ -22,8 +22,9 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# anonizator Team modifided Hikka files for anonizator
-# 🌐 https://github.com/s1zexxx/anonizator
+# Anonizator Team modifided Hikka files for Anonizator
+# 🌐 https://github.com/s1zexxx/Anonizator
+
 
 import argparse
 import asyncio
@@ -558,24 +559,26 @@ class Hikka:
             build = repo.heads[0].commit.hexsha
             diff = repo.git.log([f"HEAD..origin/{version.branch}", "--oneline"])
             upd = r"Update required" if diff else r"Up-to-date"
-        
-            logo1 = f"""
 
-                     ANONIZATOR UPDATE
-       
+            _platform = utils.get_named_platform()
+            
+            logo1 = f"""
+            
+                      Anonizator test 
                      ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
                      ♦ {upd}
                      ♦ Platform: {_platform}
-                      """
-        
+                     """
+                         
             if not self.omit_log:
+                print(logo1)
                 web_url = (
                     f"Web url: {self.web.url}\n"
                     if self.web and hasattr(self.web, "url")
                     else ""
                 )
                 logging.info(
-                    "🥀 Anonizator %s is working!\n🔏 GitHub commit SHA: %s (%s)\n%s%s",
+                    "♦️ Anonizator %s is working!\n🔏 GitHub commit SHA: %s (%s)\n%s%s",
                     ".".join(list(map(str, list(netver)))),
                     build[:7],
                     upd,
