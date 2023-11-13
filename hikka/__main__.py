@@ -46,7 +46,7 @@ else:
         try:
             import telethon
 
-            if tuple(map(int, telethon.__version__.split("."))) < (1, 24, 12):
+            if tuple(map(int, telethon.__version__.split("."))) < (1, 24, 0):
                 raise ImportError
         except ImportError:
             print("🔄 Installing Hikka-TL...")
