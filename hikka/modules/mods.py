@@ -25,6 +25,7 @@ class ModsMod(loader.Module):
             "\n<b>Wait please,"
             " Anonizator is loading...</b>"
         ),
+        "cmd": "<i></i>\n",
         "module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢",
         "core_module": "〔<emoji document_id=5256114207283229740>🔥</emoji>|<emoji document_id=5255806202293533754>🧬</emoji>|<emoji document_id=5256114207283229740>🔥</emoji>〕➢"
     }
